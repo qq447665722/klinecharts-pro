@@ -58,17 +58,19 @@ export interface ChartProOptions {
   datafeed: Datafeed
 }
 
+// 在 ChartPro 接口中添加 getWidget 方法
 export interface ChartPro {
-  setTheme(theme: string): void
-  getTheme(): string
-  setStyles(styles: DeepPartial<Styles>): void
-  getStyles(): Styles
-  setLocale(locale: string): void
-  getLocale(): string
-  setTimezone(timezone: string): void
-  getTimezone(): string
-  setSymbol(symbol: SymbolInfo): void
-  getSymbol(): SymbolInfo
-  setPeriod(period: Period): void
-  getPeriod(): Period
+  setTheme: (theme: string) => void
+  getTheme: () => string
+  setStyles: (styles: any) => void
+  getStyles: () => any
+  setLocale: (locale: string) => void
+  getLocale: () => string
+  setTimezone: (timezone: string) => void
+  getTimezone: () => string
+  setSymbol: (symbol: SymbolInfo) => void
+  getSymbol: () => SymbolInfo
+  setPeriod: (period: Period) => void
+  getPeriod: () => Period
+  getWidget?: () => any  // 添加这一行
 }
