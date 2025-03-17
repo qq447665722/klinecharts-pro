@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],  // Update this line
     "allowJs": false,
-    "skipLibCheck": false,
+    "skipLibCheck": true,     // Change to true to skip checking node_modules
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js",
+    "jsxImportSource": "solid-js"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

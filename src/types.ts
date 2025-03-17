@@ -49,6 +49,7 @@ export interface ChartProOptions {
   theme?: string
   locale?: string
   drawingBarVisible?: boolean
+  // 恢复为必需属性
   symbol: SymbolInfo
   period: Period
   periods?: Period[]
@@ -56,8 +57,7 @@ export interface ChartProOptions {
   mainIndicators?: string[]
   subIndicators?: string[]
   datafeed: Datafeed
-  // 添加指标变更回调
-  onIndicatorChange?: (data: { 
+  onIndicatorChange: (data: { 
     type: 'main' | 'sub',
     action: 'add' | 'remove',
     name: string,

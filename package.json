@@ -1,6 +1,6 @@
 {
-  "name": "@qq447665722/klinecharts-pro",
-  "version": "0.1.4",
+  "name": "@klinecharts/pro",
+  "version": "0.1.1",
   "description": "Financial chart built out of the box based on KLineChart.",
   "type": "module",
   "main": "./dist/klinecharts-pro.umd.js",
@@ -11,6 +11,10 @@
     "README.md",
     "dist/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klinecharts/pro"
+  },
   "keywords": [
     "klinecharts",
     "pro",
@@ -56,7 +60,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "solid-js": "^1.6.11"
+    "solid-js": "^1.9.5"
   },
   "peerDependencies": {
     "klinecharts": ">=9.0.0"
