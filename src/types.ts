@@ -48,13 +48,13 @@ export interface ChartProOptions {
   watermark?: string | Node
   theme?: string
   locale?: string
+  drawingBarVisible?: boolean
+  symbol?: SymbolInfo  // Make optional again
+  period?: Period      // Make optional again
+  periods?: Period[]
   timezone?: string
-  periods?: Array<Period>
-  symbol?: SymbolInfo
-  period?: Period
   mainIndicators?: string[]
   subIndicators?: string[]
-  drawingBarVisible?: boolean
   datafeed: Datafeed
   // 添加指标变更回调
   onIndicatorChange?: (data: { 
