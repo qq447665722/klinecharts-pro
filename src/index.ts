@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import { registerOverlay, Chart } from 'klinecharts'  // 添加 Chart 导入
+import { registerOverlay } from 'klinecharts'  // 添加 Chart 导入
 
 import overlays from './extension'
 
@@ -30,10 +30,15 @@ overlays.forEach(o => { registerOverlay(o) })
 export {
   DefaultDatafeed,
   KLineChartPro,
-  load as loadLocales,
-  Chart  // 导出 Chart 类型
+  load as loadLocales
 }
 
+export type { Chart } from 'klinecharts'
 export type {
-  Datafeed, SymbolInfo, Period, DatafeedSubscribeCallback, ChartProOptions, ChartPro
+  Datafeed,
+  SymbolInfo,
+  Period,
+  DatafeedSubscribeCallback,
+  ChartProOptions,
+  ChartPro
 }
