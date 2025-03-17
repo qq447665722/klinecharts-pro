@@ -35,13 +35,6 @@ import { SymbolInfo, Period, ChartProOptions, ChartPro } from './types'
 
 export interface ChartProComponentProps extends Required<Omit<ChartProOptions, 'container'>> {
   ref: (chart: ChartPro) => void
-  // 添加指标变更事件回调
-  onIndicatorChange?: (data: { 
-    type: 'main' | 'sub',
-    action: 'add' | 'remove',
-    name: string,
-    paneId?: string 
-  }) => void
 }
 
 interface PrevSymbolPeriod {
