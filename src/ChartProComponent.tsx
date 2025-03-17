@@ -35,6 +35,13 @@ import { SymbolInfo, Period, ChartProOptions, ChartPro } from './types'
 
 export interface ChartProComponentProps extends Required<Omit<ChartProOptions, 'container'>> {
   ref: (chart: ChartPro) => void
+  // 添加指标变更事件回调
+  onIndicatorChange?: (data: { 
+    type: 'main' | 'sub',
+    action: 'add' | 'remove',
+    name: string,
+    paneId?: string 
+  }) => void
 }
 
 interface PrevSymbolPeriod {
@@ -460,9 +467,21 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
             if (data.added) {
               createIndicator(widget, data.name, true, { id: 'candle_pane' })
               newMainIndicators.push(data.name)
+              // 触发添加主图指标事件
+              props.onIndicatorChange?.({
+                type: 'main',
+                action: 'add',
+                name: data.name
+              })
             } else {
               widget?.removeIndicator('candle_pane', data.name)
               newMainIndicators.splice(newMainIndicators.indexOf(data.name), 1)
+              // 触发移除主图指标事件
+              props.onIndicatorChange?.({
+                type: 'main',
+                action: 'remove',
+                name: data.name
+              })
             }
             setMainIndicators(newMainIndicators)
           }}
@@ -473,12 +492,26 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
               if (paneId) {
                 // @ts-expect-error
                 newSubIndicators[data.name] = paneId
+                // 触发添加副图指标事件
+                props.onIndicatorChange?.({
+                  type: 'sub',
+                  action: 'add',
+                  name: data.name,
+                  paneId
+                })
               }
             } else {
               if (data.paneId) {
                 widget?.removeIndicator(data.paneId, data.name)
                 // @ts-expect-error
                 delete newSubIndicators[data.name]
+                // 触发移除副图指标事件
+                props.onIndicatorChange?.({
+                  type: 'sub',
+                  action: 'remove',
+                  name: data.name,
+                  paneId: data.paneId
+                })
               }
             }
             setSubIndicators(newSubIndicators)
