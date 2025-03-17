@@ -244,14 +244,15 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
       }
     })
     setSubIndicators(subIndicatorMap)
-    widget?.loadMore(timestamp => {
+    widget?.setLoadDataCallback(({ type, data, callback }) => {
       loading = true
       const get = async () => {
         const p = period()
-        const [to] = adjustFromTo(p, timestamp!, 1)
+        const timestamp = data?.timestamp ?? new Date().getTime()
+        const [to] = adjustFromTo(p, timestamp, 1)
         const [from] = adjustFromTo(p, to, 500)
         const kLineDataList = await props.datafeed.getHistoryKLineData(symbol(), p, from, to)
-        widget?.applyMoreData(kLineDataList, kLineDataList.length > 0)
+        callback(kLineDataList, kLineDataList.length > 0)
         loading = false
       }
       get()
