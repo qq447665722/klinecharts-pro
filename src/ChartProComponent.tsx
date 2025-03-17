@@ -249,8 +249,7 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
       const get = async () => {
         const p = period()
         const timestamp = data?.timestamp ?? new Date().getTime()
-        const [to] = adjustFromTo(p, timestamp, 1)
-        const [from] = adjustFromTo(p, to, 500)
+        const [from,to] = adjustFromTo(p, timestamp, 500)
         const kLineDataList = await props.datafeed.getHistoryKLineData(symbol(), p, from, to)
         callback(kLineDataList, kLineDataList.length > 0)
         loading = false
