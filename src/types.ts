@@ -48,14 +48,21 @@ export interface ChartProOptions {
   watermark?: string | Node
   theme?: string
   locale?: string
-  drawingBarVisible?: boolean
-  symbol: SymbolInfo
-  period: Period
-  periods?: Period[]
   timezone?: string
+  periods?: Array<Period>
+  symbol?: SymbolInfo
+  period?: Period
   mainIndicators?: string[]
   subIndicators?: string[]
+  drawingBarVisible?: boolean
   datafeed: Datafeed
+  // 添加指标变更回调
+  onIndicatorChange?: (data: { 
+    type: 'main' | 'sub',
+    action: 'add' | 'remove',
+    name: string,
+    paneId?: string 
+  }) => void
 }
 
 // 在 ChartPro 接口中添加 getWidget 方法
