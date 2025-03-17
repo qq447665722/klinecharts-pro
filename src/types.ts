@@ -49,8 +49,8 @@ export interface ChartProOptions {
   theme?: string
   locale?: string
   drawingBarVisible?: boolean
-  symbol?: SymbolInfo  // Make optional again
-  period?: Period      // Make optional again
+  symbol: SymbolInfo
+  period: Period
   periods?: Period[]
   timezone?: string
   mainIndicators?: string[]
