@@ -70,7 +70,7 @@ export default class KLineChartPro implements ChartPro {
           mainIndicators={options.mainIndicators ?? ['MA']}
           subIndicators={options.subIndicators ?? ['VOL']}
           datafeed={options.datafeed}
-          onIndicatorChange={options.onIndicatorChange}  // 添加这一行
+          onIndicatorChange={options.onIndicatorChange ?? (() => {})}  // Add default empty function
         />
       ),
       this._container
