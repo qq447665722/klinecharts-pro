@@ -12,8 +12,7 @@
  * limitations under the License.
  */
 
-import { registerOverlay } from 'klinecharts'
-import { Chart } from 'klinecharts'  // 添加这一行，导入 Chart 类型
+import { registerOverlay, Chart } from 'klinecharts'  // 添加 Chart 导入
 
 import overlays from './extension'
 
@@ -32,7 +31,7 @@ export {
   DefaultDatafeed,
   KLineChartPro,
   load as loadLocales,
-  Chart  // 添加这一行，导出 Chart 类型
+  Chart  // 导出 Chart 类型
 }
 
 export type {
